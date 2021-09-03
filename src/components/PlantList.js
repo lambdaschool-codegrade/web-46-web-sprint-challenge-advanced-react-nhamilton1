@@ -15,7 +15,8 @@ export default class PlantList extends Component {
     axios.get('http://localhost:3333/plants')
       .then(res => {
         this.setState({
-          plants: this.state.plants
+          ...this.state,
+          plants: res.data
         })
       });
   }
