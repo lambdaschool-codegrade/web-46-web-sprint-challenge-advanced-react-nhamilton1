@@ -58,8 +58,8 @@ You will also need to build the two tests in the `CheckoutForm.test.js` file and
 #### Testing the Checkout Form
 * [x] Run the test runner and ensure that `src/components/CheckoutForm.test.js` is correctly called.
 * [x] Fill out code necessary to test that that Checkout form renders without errors.
-* [ ] Fill out code necessary to test that when all form inputs are filled with valid data, a success message appears.
-* [ ] Make sure the tests are passing, and make sure you can cause the tests to fail purposefully, so that you know the tests are truly working.
+* [x] Fill out code necessary to test that when all form inputs are filled with valid data, a success message appears.
+* [x] Make sure the tests are passing, and make sure you can cause the tests to fail purposefully, so that you know the tests are truly working.
 
 **Notes:**
 * Again, unlike other projects, the local server used here can not be accessed through the browser. For this and the rest of your sprint challenges, test the functioning of the server directly through your axios calls.
@@ -93,8 +93,8 @@ You will also need to build the two tests in the `CheckoutForm.test.js` file and
 
 ## Submission format
 
-* [ ] Submit via Codegrade by commiting and pushing any new changes.
-* [ ] Check codegrade for automated feedback.
+* [x] Submit via Codegrade by commiting and pushing any new changes.
+* [x] Check codegrade for automated feedback.
 * [ ] Check codegrade on Monday following the Sprint Challenge for reviewer feedback. For more information on how to access and read your feedback, check [here](https://www.notion.so/lambdaschool/How-to-View-Feedback-in-CodeGrade-c5147cee220c4044a25de28bcb6bb54a)
 * [ ] Any changes pushed to your <firstName-lastName> branch will resubmited to codegrade if pushed before the sprint challenge deadline. Changes after the deadline will not be reviewed.
 
@@ -104,8 +104,33 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 
 1. What are the main differences between a stateful and a functional component?
 
+  Function components are also known as stateless components becuase they accept data and display it, they are mainly responsible for rendering ui. Functional components cannot use React lifecyucle methods, for instance, componentDidMount. 
+
+  Class Components, you have to extends from React.Component and also make a render() function that returns a react element. This render() must be returining html.
+  Class components, are also known as stateful components since they use logic and state. You can use React lifecycle methods in class components, componentDidMount, componentDidUpdate, componentWillMount, and componentWillUpdate. 
+
 2. When does a componentWillMount function be called? What about a componentWillUpdate?
+
+  componentWillMount is invoked right before mounting occurs, and  is called before render(). It is generally used to show a loader when the compoennt is being loaded or when data is being fetched. 
+
+  componentWillUpdate, is used during the updating phase of the react lifecycle. It is usually called before the component is updated or when the state or props being passed to the component changes. 
 
 3. Define stateful logic.
 
+  Stateful logic is logic that is built into a component. Usually, this logic deals with state in the component. For example,
+      const handleChanges = (e) => {
+        setValues({ ...values, 
+            [e.target.name]: e.target.value 
+        });
+      };
+from our project is stateful logic. 
+
 4. What are the three step of creating a successful test? What is done in each phase?
+
+The three steps are Arrange, Act, and Assert.
+
+During the Arrange step, we want to Display the App Component, this requires us to render(). From the sprint today, we did render(<CheckoutForm />)
+
+Next the Act step, this is when we use findBy, getBy, queryBy, etc. We want to 'query' the dom for a specific node. This would be my lines 15 through 30 in the CheckoutForm.test.js.
+
+Last step is Assert. During this step you want to verify that the elemt exists on the page. This would be lines 33 to 48 in the CheckoutForm.test.js. 

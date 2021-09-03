@@ -31,13 +31,13 @@ test("shows success message on submit with form details", async () => {
         userEvent.click(button)
 
     await waitFor(() => {
-        const successMessage = screen.queryByTestId(/successMessage/i)
         const firstNameDisplay = screen.queryByText(/winston/i)
         const lastNameDisplay = screen.queryByText(/hamilton/i)
         const addressDisplay = screen.queryByText(/42 wallaby way/i)
         const cityDisplay = screen.queryByText(/sydney/i)
         const stateDisplay = screen.queryByText(/australia/i)
         const zipDisplay = screen.queryByText(/11901/i)
+        const successMessage = screen.queryByTestId(/successMessage/i)
 
         expect(firstNameDisplay).toBeInTheDocument()
         expect(lastNameDisplay).toBeInTheDocument()
